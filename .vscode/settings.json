@@ -1,0 +1,8 @@
+{
+    "C_Cpp.default.compilerPath": "C:\\MinGW\\bin\\gcc.exe",
+    "files.associations": {
+        "string.h": "c",
+        "stdio.h": "c",
+        "leitura.h": "c"
+    }
+}
