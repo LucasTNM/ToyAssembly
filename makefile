@@ -1,31 +1,46 @@
-CFLAGS = -Wall
+# Compilador
 CC = gcc
 
+# Opções de compilação
+CFLAGS = -Wall -g
+
+ODIR = ./src
+IDIR = ./include
 OBJDIR = objects
-BUNDIR = bin
-SRC = $(wildcard *.c)
-OBJ = $(patsubst %.c,$(OBJDIR)/%.o,$(SRC))
+BINDIR = bin
+
+# Lista de arquivos-fonte
+SOURCES = $(wildcard $(ODIR)/*.c)
+
+# Lista de arquivos-objetos (gerados a partir dos arquivos-fonte)
+OBJECTS = $(patsubst $(ODIR)/%.c, $(OBJDIR)/%.o, $(SOURCES))
 
 all: binfolder objfolder bin/main
 
-bin/main: $(OBJ)
-$(CC) $(CFLAGS) $(OBJ) -o $@ $(LDFLAGS)
+# Regra padrão para compilar o executável
+bin/main: $(OBJECTS)
+	$(CC) $(CFLAGS) $^ -o $@
 
 binfolder:
-mkdir -p $(BINDIR)
+	mkdir -p $(BINDIR)
 
 objfolder:
-mkdir -p $(OBJDIR)
+	mkdir -p $(OBJDIR)
 
-objects/main.o: main.c
-$(CC) $(CFLAGS) -c $< -o $@
+# Regras para compilar cada arquivo-fonte em um arquivo-objeto
+$(OBJDIR)/%.o: $(ODIR)/%.c $(IDIR)/%.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
-objects/%.o: %.c %.h
-$(CC) $(CFLAGS) -c $< -o $@
+$(OBJDIR)/main.o: $(ODIR)/main.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-
-.PHONY: clean
+.PHONY: clean run
 
 clean:
-rm bin/* objects/*
-rmdir bin objects
+	rm -f $(OBJDIR)/* $(BINDIR)/*
+	rmdir $(OBJDIR) $(BINDIR)
+
+run:
+	$(BINDIR)/main
+
+
