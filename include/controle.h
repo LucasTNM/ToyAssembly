@@ -6,9 +6,9 @@
 
 typedef struct {
     char operacao[6];
-    char destino[10];
-    char operando1[10];
-    char operando2[10];
+    char destino[6];
+    char operando1[6];
+    char operando2[20];
     int index;
 } Instrucao;
 
