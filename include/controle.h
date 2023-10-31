@@ -7,7 +7,7 @@
 typedef struct {
     char operacao[6];
     char destino[6];
-    char operando1[6];
+    char operando1[20];
     char operando2[20];
     int index;
 } Instrucao;
