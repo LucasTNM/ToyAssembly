@@ -1,7 +1,7 @@
 # Toy Assembly
 
-## Aluno
-Lucas Tony Magalhães de Araújo
+## Nome
+Lucas Tony
 
 ## Descrição
 Este é um interpretador de Assembly MIPS em linguagem C. 
