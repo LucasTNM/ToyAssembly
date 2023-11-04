@@ -13,15 +13,15 @@ Para compilar e executar o programa, siga os seguintes comandos no terminal:
 1. Certifique-se de que o `make` esteja instalado em seu computador.
 2. Execute o seguinte comando para compilar o programa:
 
-    make
+make
 
 3. Execute o seguinte comando para rodar o programa:
     
-    make run
+make run
 
 Se você desejar apagar os arquivos objetos e o executável, utilize o seguinte comando:
 
-    make clean
+make clean
 
 
 # EXEMPLO:
