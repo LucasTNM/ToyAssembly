@@ -42,7 +42,7 @@ void SUB(Memoria *registrador, Instrucao instrucao[], int *i) {
         sscanf(instrucao[*i].operando1, "R%d", &operando1) == 1 &&
         sscanf(instrucao[*i].operando2, "R%d", &operando2) == 1) {
         //faz a operação de subtração de dois operadores
-        registrador->registradores[destino] = registrador->registradores[operando2] - registrador->registradores[operando1];
+        registrador->registradores[destino] = registrador->registradores[operando1] - registrador->registradores[operando2];
     }
 }
 
